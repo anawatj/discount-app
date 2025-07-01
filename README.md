@@ -11,7 +11,7 @@ npm run test
 npm run test:cov
 
 🔗 API Endpoint
-POST /discount/apply
+POST /discount
 คำนวณราคาหลังหักส่วนลดทั้งหมด
 📥 Request Payload
 json
@@ -50,7 +50,7 @@ json
 }
 
 🔗 API Endpoint
-POST /discount/apply
+POST /discount
 คำนวณราคาหลังหักส่วนลด discount Point
 📥 Request Payload
 json
@@ -75,7 +75,7 @@ json
 }
 
 🔗 API Endpoint
-POST /discount/apply
+POST /discount
 คำนวณราคาหลังหักส่วนลด coupon fixed
 📥 Request Payload
 json
