@@ -1,5 +1,5 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { ApplyDiscountDto, Campaign, CartItem } from './dto/index';
+import { ApplyDiscountDto } from './dto/index';
 import { DiscountCategory, DiscountType } from './interfaces/index';
 
 @Injectable()
