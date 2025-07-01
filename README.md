@@ -1,33 +1,35 @@
-### Assignment Discount
+##### Assignment Discount
 
     - Discription Playtium Assignment
 
-### Create By Anawat Jarusiripot
+##### Create By Anawat Jarusiripot
 
-### ✅ Install dependencies
+##### ✅ Install dependencies
 
     - npm install
 
-### ▶️ Run server (Dev)
+##### ▶️ Run server (Dev)
 
     - npm run start:dev
 
-### 🧪 Run tests
+##### 🧪 Run tests
 
     - npm run test
 
-### 📊 Test coverage
+##### 📊 Test coverage
 
     - npm run test:cov
 
-### 🔗 API Endpoint
+##### 🔗 API Endpoint
 
-## POST /discount
+#### POST /discount
 
-# คำนวณราคาหลังหักส่วนลดทั้งหมด
+### คำนวณราคาหลังหักส่วนลดทั้งหมด
 
-📥 Request Payload
-json
+## 📥 Request Payload
+
+# json
+
 {
 "cart": [
 { "name": "Shirt", "price": 900, "category": "Clothing" },
@@ -56,20 +58,25 @@ json
 }
 ]
 }
-📤 Response
-json
+
+## 📤 Response
+
+# json
+
 {
 "finalPrice": 1830
 }
 
-### 🔗 API Endpoint
+##### 🔗 API Endpoint
 
-## POST /discount
+#### POST /discount
 
-# คำนวณราคาหลังหักส่วนลด discount Point
+### คำนวณราคาหลังหักส่วนลด discount Point
 
-📥 Request Payload
-json
+## 📥 Request Payload
+
+# json
+
 {
 "cart": [
 { "name": "T-Shirt:", "price": 350, "category": "Clothing" },
@@ -84,20 +91,25 @@ json
 "value":68
 }]
 }
-📤 Response
-json
+
+## 📤 Response
+
+# json
+
 {
 "finalPrice": 762
 }
 
-### 🔗 API Endpoint
+##### 🔗 API Endpoint
 
-## POST /discount
+#### POST /discount
 
-# คำนวณราคาหลังหักส่วนลด coupon fixed
+### คำนวณราคาหลังหักส่วนลด coupon fixed
 
-📥 Request Payload
-json
+## 📥 Request Payload
+
+# json
+
 {
 "cart": [
 { "name": "T-Shirt", "price": 350, "category": "Clothing" },
@@ -111,48 +123,46 @@ json
 "value":50
 }]
 }
-📤 Response
-json
+
+## 📤 Response
+
+# json
+
 {
 "finalPrice": 550
 }
 
-#### 📚 Campaign Object Format
+##### 📚 Campaign Object Format
 
-### Field Description
+#### Field Description
 
-### name ชื่อโปรโมชั่น
+    - name ชื่อโปรโมชั่น
+    - category COUPON | ON_TOP | SEASONAL
+    - discountType FIXED | PERCENTAGE
+    - value จำนวนลด (บาท หรือ %)
+    - itemCategory (ใช้เฉพาะ On Top) หมวดหมู่สินค้าที่จะลด
+    - stepAmount (ใช้เฉพาะ Seasonal) เช่น 300 → ลดทุก 300 บาท
 
-### category COUPON | ON_TOP | SEASONAL
+##### ⚠️ Rules Validation
 
-### discountType FIXED | PERCENTAGE
+    - ❌ ห้ามใช้ Fixed กับ Percentage ในหมวดเดียวกัน
 
-### value จำนวนลด (บาท หรือ %)
+    - ✅ หากใช้แต้มเกิน 20% ของยอดรวม ระบบจะตัดให้ไม่เกิน
 
-### itemCategory (ใช้เฉพาะ On Top) หมวดหมู่สินค้าที่จะลด
+    - ✅ Seasonal ลดตามยอดสุดท้ายหลังจากใช้ Coupon + On Top แล้วเท่านั้น
 
-### stepAmount (ใช้เฉพาะ Seasonal) เช่น 300 → ลดทุก 300 บาท
+##### 🧪 Example Test Case
 
-#### ⚠️ Rules Validation
+    - expect(service.applyDiscount(data)).toBe(1830);
 
-- ❌ ห้ามใช้ Fixed กับ Percentage ในหมวดเดียวกัน
+##### 🛠 Tech Stack
 
--✅ หากใช้แต้มเกิน 20% ของยอดรวม ระบบจะตัดให้ไม่เกิน
+    - NestJS
 
--✅ Seasonal ลดตามยอดสุดท้ายหลังจากใช้ Coupon + On Top แล้วเท่านั้น
+    - TypeScript
 
-#### 🧪 Example Test Case
+    - Jest (Unit Test)
 
-- expect(service.applyDiscount(data)).toBe(1830);
+    - Class Validator / DTO
 
-#### 🛠 Tech Stack
-
-- NestJS
-
-- TypeScript
-
-- Jest (Unit Test)
-
-- Class Validator / DTO
-
-- Swagger (optional)
+    - Swagger (optional)
