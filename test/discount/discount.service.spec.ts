@@ -136,7 +136,7 @@ describe('DiscountService', () => {
     const result = service.applyDiscount(dto);
     // Total = 2400
     // On Top 10% ของ 900 = 90 → 2310
-    // Seasonal = 6 steps → 8 x 40 = 320 → 1990
+    // Seasonal = 6 steps → 7 x 40 = 280 → 2030
     expect(result).toBe(2030);
   });
 
